@@ -2,6 +2,8 @@ package io.github.siloonk;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        Logger.info("Starting the server...");
+        MinecraftServer server = new MinecraftServer();
+        server.start();
     }
 }
