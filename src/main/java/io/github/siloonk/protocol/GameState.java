@@ -1,4 +1,4 @@
-package io.github.siloonk.protocol.packets;
+package io.github.siloonk.protocol;
 
 public enum GameState {
     HANDSHAKING,

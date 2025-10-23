@@ -1,11 +1,10 @@
-package io.github.siloonk.protocol.packets.serverbound;
+package io.github.siloonk.protocol.packets;
 
-import io.github.siloonk.protocol.packets.Packet;
-import io.github.siloonk.protocol.packets.PacketDirection;
+import io.github.siloonk.protocol.Packet;
+import io.github.siloonk.protocol.PacketDirection;
 import io.github.siloonk.protocol.streams.PacketInputStream;
 import io.github.siloonk.protocol.streams.PacketOutputStream;
 
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.NotActiveException;
 

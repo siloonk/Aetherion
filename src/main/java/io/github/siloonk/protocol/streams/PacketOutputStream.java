@@ -1,6 +1,6 @@
 package io.github.siloonk.protocol.streams;
 
-import io.github.siloonk.protocol.packets.Packet;
+import io.github.siloonk.protocol.Packet;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

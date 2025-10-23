@@ -1,10 +1,10 @@
 package io.github.siloonk;
 
 import io.github.siloonk.protocol.ClientHandler;
-import io.github.siloonk.protocol.packets.GameState;
-import io.github.siloonk.protocol.packets.PacketDirection;
-import io.github.siloonk.protocol.packets.PacketRegistry;
-import io.github.siloonk.protocol.packets.serverbound.HandshakingPacket;
+import io.github.siloonk.protocol.GameState;
+import io.github.siloonk.protocol.PacketDirection;
+import io.github.siloonk.protocol.PacketRegistry;
+import io.github.siloonk.protocol.packets.HandshakingPacket;
 
 import java.io.IOException;
 import java.net.ServerSocket;

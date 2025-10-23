@@ -1,4 +1,4 @@
-package io.github.siloonk.protocol.packets;
+package io.github.siloonk.protocol;
 
 import java.util.HashMap;
 import java.util.Map;

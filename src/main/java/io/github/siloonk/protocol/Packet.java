@@ -1,4 +1,4 @@
-package io.github.siloonk.protocol.packets;
+package io.github.siloonk.protocol;
 
 import io.github.siloonk.protocol.streams.PacketInputStream;
 import io.github.siloonk.protocol.streams.PacketOutputStream;

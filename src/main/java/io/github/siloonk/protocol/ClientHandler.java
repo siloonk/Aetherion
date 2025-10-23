@@ -1,10 +1,6 @@
 package io.github.siloonk.protocol;
 
 import io.github.siloonk.Logger;
-import io.github.siloonk.protocol.packets.GameState;
-import io.github.siloonk.protocol.packets.Packet;
-import io.github.siloonk.protocol.packets.PacketDirection;
-import io.github.siloonk.protocol.packets.PacketRegistry;
 import io.github.siloonk.protocol.streams.PacketInputStream;
 import io.github.siloonk.protocol.streams.PacketOutputStream;
 
