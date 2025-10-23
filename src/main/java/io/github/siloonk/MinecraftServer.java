@@ -5,6 +5,10 @@ import io.github.siloonk.protocol.GameState;
 import io.github.siloonk.protocol.PacketDirection;
 import io.github.siloonk.protocol.PacketRegistry;
 import io.github.siloonk.protocol.packets.HandshakingPacket;
+import io.github.siloonk.protocol.packets.status.PingRequestPacket;
+import io.github.siloonk.protocol.packets.status.PingResponsePacket;
+import io.github.siloonk.protocol.packets.status.StatusRequestPacket;
+import io.github.siloonk.protocol.packets.status.StatusResponsePacket;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -52,6 +56,19 @@ public class MinecraftServer {
     }
 
     private void registerPackets() {
+
+        /**
+         * handshaking
+         */
         this.registry.register(PacketDirection.SERVERBOUND, GameState.HANDSHAKING, 0x00, HandshakingPacket.class);
+
+        /**
+         * Status
+         */
+        this.registry.register(PacketDirection.SERVERBOUND, GameState.STATUS, 0x00, StatusRequestPacket.class);
+        this.registry.register(PacketDirection.SERVERBOUND, GameState.STATUS, 0x01, PingRequestPacket.class);
+
+        this.registry.register(PacketDirection.CLIENTBOUND, GameState.STATUS, 0x00, StatusResponsePacket.class);
+        this.registry.register(PacketDirection.CLIENTBOUND, GameState.STATUS, 0x01, PingResponsePacket.class);
     }
 }

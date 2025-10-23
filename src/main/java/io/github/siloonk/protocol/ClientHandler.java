@@ -14,6 +14,7 @@ public class ClientHandler extends Thread {
     private final PacketOutputStream out;
 
     private final PacketRegistry registry;
+    private PacketListener listener;
 
     private GameState state = GameState.HANDSHAKING;
 
@@ -23,6 +24,8 @@ public class ClientHandler extends Thread {
             this.in = new PacketInputStream(socket.getInputStream());
             this.out = new PacketOutputStream(socket.getOutputStream());
             this.registry = registry;
+
+            this.listener = new PacketListener(this);
 
 
             Logger.info("Clienthandler initialized correctly!");
@@ -41,10 +44,11 @@ public class ClientHandler extends Thread {
     public void start() {
         try {
             while (!isClosed()) {
-
                 // Get the packet data
                 Packet packet = in.readPacket(registry, PacketDirection.SERVERBOUND, state);
-
+                if (packet != null) {
+                    this.listener.handle(packet);
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -59,5 +63,13 @@ public class ClientHandler extends Thread {
 
     public boolean isClosed() {
         return socket.isClosed() || !socket.isConnected();
+    }
+
+    public void setState(GameState state) {
+        this.state = state;
+    }
+
+    public PacketOutputStream getOut() {
+        return out;
     }
 }

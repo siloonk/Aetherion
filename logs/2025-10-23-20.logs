@@ -1,0 +1,103 @@
+Thu Oct 23 20:12:43 CEST 2025 [INFO] Starting the server...
+Thu Oct 23 20:12:43 CEST 2025 [INFO] Server has started!
+Thu Oct 23 20:12:43 CEST 2025 [INFO] Listening for connections on port 25565
+Thu Oct 23 20:12:48 CEST 2025 [INFO] Clienthandler initialized correctly!
+Thu Oct 23 20:12:55 CEST 2025 [INFO] Clienthandler initialized correctly!
+Thu Oct 23 20:12:58 CEST 2025 [INFO] Clienthandler initialized correctly!
+Thu Oct 23 20:13:57 CEST 2025 [INFO] Starting the server...
+Thu Oct 23 20:13:57 CEST 2025 [INFO] Server has started!
+Thu Oct 23 20:13:57 CEST 2025 [INFO] Listening for connections on port 25565
+Thu Oct 23 20:14:08 CEST 2025 [INFO] Clienthandler initialized correctly!
+Thu Oct 23 20:14:08 CEST 2025 [INFO] Found packet with ID: 0 Length: 16 and data [B@25f38edc
+Thu Oct 23 20:14:08 CEST 2025 [INFO] Found packet with ID: 9 Length: 773 and data [B@1a86f2f1
+Thu Oct 23 20:14:08 CEST 2025 [INFO] Found packet with ID: 111 Length: 108 and data [B@3eb07fd3
+Thu Oct 23 20:14:08 CEST 2025 [INFO] Found packet with ID: 97 Length: 99 and data [B@506c589e
+Thu Oct 23 20:14:08 CEST 2025 [INFO] Found packet with ID: 104 Length: 108 and data [B@69d0a921
+Thu Oct 23 20:14:08 CEST 2025 [INFO] Found packet with ID: 115 Length: 111 and data [B@446cdf90
+Thu Oct 23 20:14:08 CEST 2025 [INFO] Found packet with ID: 99 Length: 116 and data [B@799f7e29
+Thu Oct 23 20:14:08 CEST 2025 [INFO] Found packet with ID: 1 Length: 221 and data [B@4b85612c
+Thu Oct 23 20:14:14 CEST 2025 [ERROR] Something went wrong trying to communicate with the client!
+Thu Oct 23 20:14:15 CEST 2025 [INFO] Clienthandler initialized correctly!
+Thu Oct 23 20:14:15 CEST 2025 [INFO] Found packet with ID: 0 Length: 16 and data [B@28c97a5
+Thu Oct 23 20:14:15 CEST 2025 [INFO] Found packet with ID: 9 Length: 773 and data [B@6659c656
+Thu Oct 23 20:14:15 CEST 2025 [INFO] Found packet with ID: 111 Length: 108 and data [B@6d5380c2
+Thu Oct 23 20:14:15 CEST 2025 [INFO] Found packet with ID: 97 Length: 99 and data [B@45ff54e6
+Thu Oct 23 20:14:15 CEST 2025 [INFO] Found packet with ID: 104 Length: 108 and data [B@2328c243
+Thu Oct 23 20:14:15 CEST 2025 [INFO] Found packet with ID: 115 Length: 111 and data [B@bebdb06
+Thu Oct 23 20:14:15 CEST 2025 [INFO] Found packet with ID: 99 Length: 116 and data [B@7a4f0f29
+Thu Oct 23 20:14:15 CEST 2025 [INFO] Found packet with ID: 25 Length: 349 and data [B@45283ce2
+Thu Oct 23 20:14:15 CEST 2025 [INFO] Found packet with ID: 7 Length: 0 and data [B@2077d4de
+Thu Oct 23 20:14:15 CEST 2025 [INFO] Found packet with ID: 105 Length: 115 and data [B@7591083d
+Thu Oct 23 20:14:15 CEST 2025 [INFO] Found packet with ID: 111 Length: 108 and data [B@77a567e1
+Thu Oct 23 20:14:15 CEST 2025 [INFO] Found packet with ID: 110 Length: 111 and data [B@736e9adb
+Thu Oct 23 20:14:15 CEST 2025 [INFO] Found packet with ID: 1065199 Length: 107 and data [B@6d21714c
+Thu Oct 23 20:14:15 CEST 2025 [INFO] Found packet with ID: 57 Length: 5445 and data [B@108c4c35
+Thu Oct 23 20:14:15 CEST 2025 [INFO] Found packet with ID: 127 Length: 65 and data [B@4ccabbaa
+Thu Oct 23 20:14:15 CEST 2025 [ERROR] Something went wrong trying to communicate with the client!
+Thu Oct 23 20:14:18 CEST 2025 [INFO] Clienthandler initialized correctly!
+Thu Oct 23 20:14:18 CEST 2025 [INFO] Found packet with ID: 0 Length: 16 and data [B@2d38eb89
+Thu Oct 23 20:14:18 CEST 2025 [INFO] Found packet with ID: 9 Length: 773 and data [B@5fa7e7ff
+Thu Oct 23 20:14:18 CEST 2025 [INFO] Found packet with ID: 111 Length: 108 and data [B@4629104a
+Thu Oct 23 20:14:18 CEST 2025 [INFO] Found packet with ID: 97 Length: 99 and data [B@27f8302d
+Thu Oct 23 20:14:18 CEST 2025 [INFO] Found packet with ID: 104 Length: 108 and data [B@4d76f3f8
+Thu Oct 23 20:14:18 CEST 2025 [INFO] Found packet with ID: 115 Length: 111 and data [B@2d8e6db6
+Thu Oct 23 20:14:18 CEST 2025 [INFO] Found packet with ID: 99 Length: 116 and data [B@23ab930d
+Thu Oct 23 20:14:18 CEST 2025 [INFO] Found packet with ID: 1 Length: 221 and data [B@4534b60d
+Thu Oct 23 20:14:18 CEST 2025 [ERROR] Something went wrong trying to communicate with the client!
+Thu Oct 23 20:14:19 CEST 2025 [INFO] Clienthandler initialized correctly!
+Thu Oct 23 20:14:19 CEST 2025 [INFO] Found packet with ID: 0 Length: 16 and data [B@619a5dff
+Thu Oct 23 20:14:19 CEST 2025 [INFO] Found packet with ID: 9 Length: 773 and data [B@1ed6993a
+Thu Oct 23 20:14:19 CEST 2025 [INFO] Found packet with ID: 111 Length: 108 and data [B@7e32c033
+Thu Oct 23 20:14:19 CEST 2025 [INFO] Found packet with ID: 97 Length: 99 and data [B@7ab2bfe1
+Thu Oct 23 20:14:19 CEST 2025 [INFO] Found packet with ID: 104 Length: 108 and data [B@497470ed
+Thu Oct 23 20:14:19 CEST 2025 [INFO] Found packet with ID: 115 Length: 111 and data [B@63c12fb0
+Thu Oct 23 20:14:19 CEST 2025 [INFO] Found packet with ID: 99 Length: 116 and data [B@b1a58a3
+Thu Oct 23 20:14:19 CEST 2025 [INFO] Found packet with ID: 1 Length: 221 and data [B@6438a396
+Thu Oct 23 20:14:29 CEST 2025 [INFO] Starting the server...
+Thu Oct 23 20:14:29 CEST 2025 [INFO] Server has started!
+Thu Oct 23 20:14:29 CEST 2025 [INFO] Listening for connections on port 25565
+Thu Oct 23 20:14:33 CEST 2025 [INFO] Clienthandler initialized correctly!
+Thu Oct 23 20:14:38 CEST 2025 [INFO] Found packet with ID: 0 Length: 16 and data [B@25f38edc
+Thu Oct 23 20:14:38 CEST 2025 [ERROR] Something went wrong trying to communicate with the client!
+Thu Oct 23 20:14:40 CEST 2025 [INFO] Clienthandler initialized correctly!
+Thu Oct 23 20:14:43 CEST 2025 [INFO] Found packet with ID: 0 Length: 16 and data [B@5f4da5c3
+Thu Oct 23 20:14:43 CEST 2025 [ERROR] Something went wrong trying to communicate with the client!
+Thu Oct 23 20:14:44 CEST 2025 [INFO] Clienthandler initialized correctly!
+Thu Oct 23 20:15:14 CEST 2025 [INFO] Found packet with ID: 0 Length: 16 and data [B@14514713
+Thu Oct 23 20:15:14 CEST 2025 [ERROR] Something went wrong trying to communicate with the client!
+Thu Oct 23 20:15:14 CEST 2025 [INFO] Clienthandler initialized correctly!
+Thu Oct 23 20:38:08 CEST 2025 [INFO] Starting the server...
+Thu Oct 23 20:38:08 CEST 2025 [INFO] Server has started!
+Thu Oct 23 20:38:08 CEST 2025 [INFO] Listening for connections on port 25565
+Thu Oct 23 20:38:13 CEST 2025 [INFO] Clienthandler initialized correctly!
+Thu Oct 23 20:38:13 CEST 2025 [ERROR] Something went wrong trying to communicate with the client!
+Thu Oct 23 20:38:13 CEST 2025 [INFO] Clienthandler initialized correctly!
+Thu Oct 23 20:39:28 CEST 2025 [INFO] Starting the server...
+Thu Oct 23 20:39:28 CEST 2025 [INFO] Server has started!
+Thu Oct 23 20:39:28 CEST 2025 [INFO] Listening for connections on port 25565
+Thu Oct 23 20:39:33 CEST 2025 [INFO] Clienthandler initialized correctly!
+Thu Oct 23 20:39:33 CEST 2025 [ERROR] Something went wrong trying to communicate with the client!
+Thu Oct 23 20:39:34 CEST 2025 [INFO] Clienthandler initialized correctly!
+Thu Oct 23 20:39:36 CEST 2025 [ERROR] Something went wrong trying to communicate with the client!
+Thu Oct 23 20:39:37 CEST 2025 [INFO] Clienthandler initialized correctly!
+Thu Oct 23 20:40:07 CEST 2025 [ERROR] Something went wrong trying to communicate with the client!
+Thu Oct 23 20:40:07 CEST 2025 [INFO] Clienthandler initialized correctly!
+Thu Oct 23 20:41:18 CEST 2025 [INFO] Starting the server...
+Thu Oct 23 20:41:18 CEST 2025 [INFO] Server has started!
+Thu Oct 23 20:41:18 CEST 2025 [INFO] Listening for connections on port 25565
+Thu Oct 23 20:41:26 CEST 2025 [INFO] Clienthandler initialized correctly!
+Thu Oct 23 20:41:28 CEST 2025 [ERROR] Something went wrong trying to communicate with the client!
+Thu Oct 23 20:41:29 CEST 2025 [INFO] Clienthandler initialized correctly!
+Thu Oct 23 20:41:34 CEST 2025 [ERROR] Something went wrong trying to communicate with the client!
+Thu Oct 23 20:41:35 CEST 2025 [INFO] Clienthandler initialized correctly!
+Thu Oct 23 20:41:38 CEST 2025 [ERROR] Something went wrong trying to communicate with the client!
+Thu Oct 23 20:41:40 CEST 2025 [INFO] Clienthandler initialized correctly!
+Thu Oct 23 20:41:41 CEST 2025 [ERROR] Something went wrong trying to communicate with the client!
+Thu Oct 23 20:43:09 CEST 2025 [INFO] Starting the server...
+Thu Oct 23 20:43:09 CEST 2025 [INFO] Server has started!
+Thu Oct 23 20:43:09 CEST 2025 [INFO] Listening for connections on port 25565
+Thu Oct 23 20:43:14 CEST 2025 [INFO] Clienthandler initialized correctly!
+Thu Oct 23 20:43:44 CEST 2025 [ERROR] Something went wrong trying to communicate with the client!
+Thu Oct 23 20:43:44 CEST 2025 [INFO] Clienthandler initialized correctly!
+Thu Oct 23 20:43:45 CEST 2025 [ERROR] Something went wrong trying to communicate with the client!
+Thu Oct 23 20:43:45 CEST 2025 [INFO] Clienthandler initialized correctly!

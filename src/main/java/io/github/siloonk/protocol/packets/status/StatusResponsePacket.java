@@ -7,30 +7,26 @@ import io.github.siloonk.protocol.streams.PacketOutputStream;
 
 import java.io.IOException;
 
-public class PingRequestPacket extends Packet {
+public class StatusResponsePacket extends Packet {
 
-    private long payload;
+    private String response;
 
-    public PingRequestPacket() {
-        super(0x01, PacketDirection.SERVERBOUND);
+    public StatusResponsePacket() {
+        super(0x00, PacketDirection.CLIENTBOUND);
     }
 
-    public PingRequestPacket(long payload) {
+    public StatusResponsePacket(String response) {
         this();
-        this.payload = payload;
+        this.response = response;
     }
 
     @Override
     public void read(PacketInputStream in) throws IOException {
-        this.payload = in.readLong();
-    }
-
-    public long getPayload() {
-        return payload;
+        this.response = in.readString();
     }
 
     @Override
     public void write(PacketOutputStream out) throws IOException {
-        out.writeLong(this.payload);
+        out.writeString(response);
     }
 }

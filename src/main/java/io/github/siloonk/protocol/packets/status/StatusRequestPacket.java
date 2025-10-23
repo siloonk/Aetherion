@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public class StatusRequestPacket extends Packet {
 
-    protected StatusRequestPacket() {
+    public StatusRequestPacket() {
         super(0x00, PacketDirection.SERVERBOUND);
     }
 
