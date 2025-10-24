@@ -2,6 +2,8 @@ package io.github.siloonk.protocol;
 
 import io.github.siloonk.Logger;
 import io.github.siloonk.annotations.PacketHandler;
+import io.github.siloonk.protocol.data.GameState;
+import io.github.siloonk.protocol.data.ServerListJson;
 import io.github.siloonk.protocol.packets.HandshakingPacket;
 import io.github.siloonk.protocol.packets.status.PingRequestPacket;
 import io.github.siloonk.protocol.packets.status.PingResponsePacket;

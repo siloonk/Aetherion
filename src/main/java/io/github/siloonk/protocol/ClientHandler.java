@@ -1,6 +1,9 @@
 package io.github.siloonk.protocol;
 
 import io.github.siloonk.Logger;
+import io.github.siloonk.MinecraftServer;
+import io.github.siloonk.protocol.data.GameState;
+import io.github.siloonk.protocol.data.PacketDirection;
 import io.github.siloonk.protocol.streams.PacketInputStream;
 import io.github.siloonk.protocol.streams.PacketOutputStream;
 
@@ -13,17 +16,17 @@ public class ClientHandler extends Thread {
     private final PacketInputStream in;
     private final PacketOutputStream out;
 
-    private final PacketRegistry registry;
-    private PacketListener listener;
+    private final MinecraftServer server;
+    private final PacketListener listener;
 
     private GameState state = GameState.HANDSHAKING;
 
-    public ClientHandler(Socket socket, PacketRegistry registry) {
+    public ClientHandler(Socket socket, MinecraftServer server) {
         try {
             this.socket = socket;
             this.in = new PacketInputStream(socket.getInputStream());
             this.out = new PacketOutputStream(socket.getOutputStream());
-            this.registry = registry;
+            this.server = server;
 
             this.listener = new PacketListener(this);
 
@@ -45,7 +48,7 @@ public class ClientHandler extends Thread {
         try {
             while (!isClosed()) {
                 // Get the packet data
-                Packet packet = in.readPacket(registry, PacketDirection.SERVERBOUND, state);
+                Packet packet = in.readPacket(server.getPacketRegistry(), PacketDirection.SERVERBOUND, state);
                 if (packet != null) {
                     this.listener.handle(packet);
                 }

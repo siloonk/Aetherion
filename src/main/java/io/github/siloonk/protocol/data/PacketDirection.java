@@ -1,4 +1,4 @@
-package io.github.siloonk.protocol;
+package io.github.siloonk.protocol.data;
 
 public enum PacketDirection {
     CLIENTBOUND,

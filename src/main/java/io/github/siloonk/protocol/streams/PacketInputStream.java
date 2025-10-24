@@ -1,9 +1,9 @@
 package io.github.siloonk.protocol.streams;
 
-import io.github.siloonk.protocol.GameState;
+import io.github.siloonk.protocol.data.GameState;
 import io.github.siloonk.protocol.Packet;
-import io.github.siloonk.protocol.PacketDirection;
-import io.github.siloonk.protocol.PacketRegistry;
+import io.github.siloonk.protocol.data.PacketDirection;
+import io.github.siloonk.protocol.data.PacketRegistry;
 
 import java.io.IOException;
 import java.io.InputStream;

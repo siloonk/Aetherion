@@ -1,9 +1,9 @@
 package io.github.siloonk;
 
 import io.github.siloonk.protocol.ClientHandler;
-import io.github.siloonk.protocol.GameState;
-import io.github.siloonk.protocol.PacketDirection;
-import io.github.siloonk.protocol.PacketRegistry;
+import io.github.siloonk.protocol.data.GameState;
+import io.github.siloonk.protocol.data.PacketDirection;
+import io.github.siloonk.protocol.data.PacketRegistry;
 import io.github.siloonk.protocol.packets.HandshakingPacket;
 import io.github.siloonk.protocol.packets.status.PingRequestPacket;
 import io.github.siloonk.protocol.packets.status.PingResponsePacket;
@@ -41,7 +41,7 @@ public class MinecraftServer {
             while (!this.isClosed()) {
                 Socket socket = serverSocket.accept();
 
-                ClientHandler handler = new ClientHandler(socket, registry);
+                ClientHandler handler = new ClientHandler(socket, this);
                 handlers.add(handler);
                 handler.start();
             }
@@ -70,5 +70,9 @@ public class MinecraftServer {
 
         this.registry.register(PacketDirection.CLIENTBOUND, GameState.STATUS, 0x00, StatusResponsePacket.class);
         this.registry.register(PacketDirection.CLIENTBOUND, GameState.STATUS, 0x01, PingResponsePacket.class);
+    }
+
+    public PacketRegistry getPacketRegistry() {
+        return registry;
     }
 }

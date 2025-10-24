@@ -1,4 +1,4 @@
-package io.github.siloonk.protocol;
+package io.github.siloonk.protocol.data;
 
 import java.util.Objects;
 

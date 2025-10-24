@@ -1,5 +1,6 @@
 package io.github.siloonk.protocol;
 
+import io.github.siloonk.protocol.data.PacketDirection;
 import io.github.siloonk.protocol.streams.PacketInputStream;
 import io.github.siloonk.protocol.streams.PacketOutputStream;
 
