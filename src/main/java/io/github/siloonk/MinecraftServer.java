@@ -5,6 +5,7 @@ import io.github.siloonk.protocol.data.GameState;
 import io.github.siloonk.protocol.data.PacketDirection;
 import io.github.siloonk.protocol.data.PacketRegistry;
 import io.github.siloonk.protocol.packets.HandshakingPacket;
+import io.github.siloonk.protocol.packets.login.*;
 import io.github.siloonk.protocol.packets.status.PingRequestPacket;
 import io.github.siloonk.protocol.packets.status.PingResponsePacket;
 import io.github.siloonk.protocol.packets.status.StatusRequestPacket;
@@ -70,6 +71,18 @@ public class MinecraftServer {
 
         this.registry.register(PacketDirection.CLIENTBOUND, GameState.STATUS, 0x00, StatusResponsePacket.class);
         this.registry.register(PacketDirection.CLIENTBOUND, GameState.STATUS, 0x01, PingResponsePacket.class);
+
+        /**
+         * Login
+         */
+        this.registry.register(PacketDirection.SERVERBOUND, GameState.LOGIN, 0x00, LoginStartPacket.class);
+        this.registry.register(PacketDirection.SERVERBOUND, GameState.LOGIN, 0x02, LoginPluginResponsePacket.class);
+        this.registry.register(PacketDirection.SERVERBOUND, GameState.LOGIN, 0x03, LoginAcknowledgedPacket.class);
+
+        this.registry.register(PacketDirection.CLIENTBOUND, GameState.LOGIN, 0x00, LoginDisconnectPacket.class);
+        this.registry.register(PacketDirection.CLIENTBOUND, GameState.LOGIN, 0x02, LoginSuccessPacket.class);
+        this.registry.register(PacketDirection.CLIENTBOUND, GameState.LOGIN, 0x04, LoginPluginResponsePacket.class);
+
     }
 
     public PacketRegistry getPacketRegistry() {

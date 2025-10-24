@@ -8,6 +8,7 @@ import io.github.siloonk.protocol.data.PacketRegistry;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
+import java.util.UUID;
 
 public class PacketInputStream extends InputStream {
 
@@ -67,6 +68,10 @@ public class PacketInputStream extends InputStream {
         return value;
     }
 
+    public boolean readBoolean() throws IOException {
+        return readByte() != 0;
+    }
+
     /**
      * Reads exactly buffer.length bytes from the stream into buffer.
      * Throws IOException if the stream ends prematurely.
@@ -105,6 +110,10 @@ public class PacketInputStream extends InputStream {
         // Let the packet parse its own data
         packet.read(this);
         return packet;
+    }
+
+    public UUID readUUID() throws IOException {
+        return new UUID(readLong(), readLong());
     }
 
 
