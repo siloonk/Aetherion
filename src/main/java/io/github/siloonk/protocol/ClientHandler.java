@@ -2,8 +2,10 @@ package io.github.siloonk.protocol;
 
 import io.github.siloonk.Logger;
 import io.github.siloonk.MinecraftServer;
+import io.github.siloonk.aetherion.Player;
 import io.github.siloonk.protocol.data.GameState;
 import io.github.siloonk.protocol.data.PacketDirection;
+import io.github.siloonk.protocol.packets.PacketHandlerRegistry;
 import io.github.siloonk.protocol.streams.PacketInputStream;
 import io.github.siloonk.protocol.streams.PacketOutputStream;
 
@@ -17,9 +19,12 @@ public class ClientHandler extends Thread {
     private final PacketOutputStream out;
 
     private final MinecraftServer server;
-    private final PacketListener listener;
+    private final PacketHandlerRegistry listener;
 
     private GameState state = GameState.HANDSHAKING;
+
+    // Temporarily store the player here so we can use this once the login acknowledged is received
+    private Player pendingPlayer;
 
     public ClientHandler(Socket socket, MinecraftServer server) {
         try {
@@ -28,7 +33,7 @@ public class ClientHandler extends Thread {
             this.out = new PacketOutputStream(socket.getOutputStream());
             this.server = server;
 
-            this.listener = new PacketListener(this);
+            this.listener = new PacketHandlerRegistry(this);
 
 
             Logger.info("Clienthandler initialized correctly!");
@@ -54,7 +59,9 @@ public class ClientHandler extends Thread {
                 }
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            if (!(e instanceof IOException)) {
+                e.printStackTrace();
+            }
             Logger.error("Something went wrong trying to communicate with the client!");
             try {
                 this.socket.close();
@@ -68,11 +75,19 @@ public class ClientHandler extends Thread {
         return socket.isClosed() || !socket.isConnected();
     }
 
+    public GameState getGameState() {
+        return state;
+    }
+
     public void setState(GameState state) {
         this.state = state;
     }
 
     public PacketOutputStream getOut() {
         return out;
+    }
+
+    public MinecraftServer getServer() {
+        return server;
     }
 }

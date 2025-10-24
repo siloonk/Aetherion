@@ -2,6 +2,9 @@ package io.github.siloonk.aetherion;
 
 import io.github.siloonk.protocol.ClientHandler;
 
+import java.io.IOException;
+import java.util.UUID;
+
 public class Player {
 
     // Name that's used when logging in
@@ -17,18 +20,22 @@ public class Player {
     // The Client handler that is handling everything on the lower level
     private ClientHandler handler;
 
-    public Player(String username, Location location, ClientHandler handler) {
+    private UUID uuid;
+
+    public Player(String username, UUID uuid, Location location, ClientHandler handler) {
         this.username = username;
         this.displayName = username;
         this.location = location;
         this.handler = handler;
+        this.uuid = uuid;
     }
 
-    public Player(String username, ClientHandler handler) {
+    public Player(String username, UUID uuid, ClientHandler handler) {
         this.username = username;
         this.location = new Location(new World(), 0, 0, 0);
         this.displayName = username;
         this.handler = handler;
+        this.uuid = uuid;
     }
 
     public ClientHandler getHandler() {
@@ -49,5 +56,14 @@ public class Player {
 
     public void setDisplayName(String displayName) {
         this.displayName = displayName;
+    }
+
+    public UUID getUuid() {
+        return uuid;
+    }
+
+    public void disconnect(String reason) throws IOException {
+        this.handler.getServer().disconnectPlayer(handler, reason);
+        this.handler.getServer().removePlayer(this);
     }
 }

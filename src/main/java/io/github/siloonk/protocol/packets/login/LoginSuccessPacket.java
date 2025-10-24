@@ -57,11 +57,11 @@ public class LoginSuccessPacket extends Packet {
 
     @Override
     public void write(PacketOutputStream out) throws IOException {
-        out.writeString(username);
         out.writeUUID(uuid);
+        out.writeString(username);
+        out.writeVarInt(0);
 
         // TODO: Implement the texture part
-
     }
 
     public String getUsername() {

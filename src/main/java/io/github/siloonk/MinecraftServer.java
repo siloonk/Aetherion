@@ -1,5 +1,6 @@
 package io.github.siloonk;
 
+import io.github.siloonk.aetherion.Player;
 import io.github.siloonk.protocol.ClientHandler;
 import io.github.siloonk.protocol.data.GameState;
 import io.github.siloonk.protocol.data.PacketDirection;
@@ -15,14 +16,25 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class MinecraftServer {
 
-    private ServerSocket serverSocket;
+    /**
+     * Constants
+     */
+    public static final int MAX_PLAYERS = 50;
+    public static final String MOTD = "Welcome to the Java Minecraft Server";
+    public static final int PROTOCOL_VERSION = 773;
+    public static final String VERSION_NAME = "1.21.10";
 
-    private ArrayList<ClientHandler> handlers = new ArrayList<>();
 
-    private PacketRegistry registry = new PacketRegistry();
+    private final ServerSocket serverSocket;
+
+    private final ArrayList<Player> players = new ArrayList<>();
+    private final HashMap<ClientHandler, Player> pendingPlayers = new HashMap<>();
+
+    private final PacketRegistry registry = new PacketRegistry();
 
     public MinecraftServer() {
         try {
@@ -43,7 +55,6 @@ public class MinecraftServer {
                 Socket socket = serverSocket.accept();
 
                 ClientHandler handler = new ClientHandler(socket, this);
-                handlers.add(handler);
                 handler.start();
             }
         } catch (IOException e) {
@@ -85,7 +96,32 @@ public class MinecraftServer {
 
     }
 
+    public ArrayList<Player> getPlayers() {
+        return players;
+    }
+
+    /**
+     * Send the disconnect packet to the player and close their socket
+     * @param player The player that should be disconnected
+     * @throws IOException
+     */
+    public void disconnectPlayer(ClientHandler handler, String reason) throws IOException {
+        if (handler.getGameState() == GameState.LOGIN) {
+            handler.getOut().writePacket(new LoginDisconnectPacket(reason));
+            handler.getOut().close();
+        }
+    }
+
+    public void removePlayer(Player player) {
+        this.players.remove(player);
+    }
+
     public PacketRegistry getPacketRegistry() {
         return registry;
+    }
+
+
+    public HashMap<ClientHandler, Player> getPendingPlayers() {
+        return pendingPlayers;
     }
 }

@@ -55,7 +55,7 @@ public class PacketOutputStream extends OutputStream {
 
         tempOut.writeVarInt(packet.getId());
         packet.write(tempOut);
-        tempOut.close();
+        tempOut.flush();
 
         byte[] data = buffer.toByteArray();
         writeVarInt(data.length);
