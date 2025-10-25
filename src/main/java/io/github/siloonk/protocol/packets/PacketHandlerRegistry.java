@@ -3,10 +3,12 @@ package io.github.siloonk.protocol.packets;
 import io.github.siloonk.protocol.ClientHandler;
 import io.github.siloonk.protocol.Packet;
 import io.github.siloonk.protocol.listeners.HandshakeListener;
+import io.github.siloonk.protocol.listeners.configuration.ClientInformationListener;
 import io.github.siloonk.protocol.listeners.login.LoginAcknowledgedListener;
 import io.github.siloonk.protocol.listeners.login.LoginListener;
 import io.github.siloonk.protocol.listeners.status.PingListener;
 import io.github.siloonk.protocol.listeners.status.StatusListener;
+import io.github.siloonk.protocol.packets.configuration.serverbound.ConfigurationClientInformationPacket;
 import io.github.siloonk.protocol.packets.login.LoginAcknowledgedPacket;
 import io.github.siloonk.protocol.packets.login.LoginStartPacket;
 import io.github.siloonk.protocol.packets.status.PingRequestPacket;
@@ -51,5 +53,8 @@ public class PacketHandlerRegistry {
 
         register(LoginStartPacket.class, new LoginListener());
         register(LoginAcknowledgedPacket.class, new LoginAcknowledgedListener());
+
+        
+        register(ConfigurationClientInformationPacket.class, new ClientInformationListener());
     }
 }

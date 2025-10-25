@@ -6,6 +6,9 @@ import io.github.siloonk.protocol.data.GameState;
 import io.github.siloonk.protocol.data.PacketDirection;
 import io.github.siloonk.protocol.data.PacketRegistry;
 import io.github.siloonk.protocol.packets.HandshakingPacket;
+import io.github.siloonk.protocol.packets.configuration.clientbound.*;
+import io.github.siloonk.protocol.packets.configuration.serverbound.ConfigurationClientInformationPacket;
+import io.github.siloonk.protocol.packets.configuration.serverbound.ConfigurationFinishAcknowledgedPacket;
 import io.github.siloonk.protocol.packets.login.*;
 import io.github.siloonk.protocol.packets.status.PingRequestPacket;
 import io.github.siloonk.protocol.packets.status.PingResponsePacket;
@@ -16,7 +19,9 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 
 public class MinecraftServer {
 
@@ -31,7 +36,7 @@ public class MinecraftServer {
 
     private final ServerSocket serverSocket;
 
-    private final ArrayList<Player> players = new ArrayList<>();
+    private final HashMap<ClientHandler, Player> players = new HashMap<>();
     private final HashMap<ClientHandler, Player> pendingPlayers = new HashMap<>();
 
     private final PacketRegistry registry = new PacketRegistry();
@@ -94,26 +99,35 @@ public class MinecraftServer {
         this.registry.register(PacketDirection.CLIENTBOUND, GameState.LOGIN, 0x02, LoginSuccessPacket.class);
         this.registry.register(PacketDirection.CLIENTBOUND, GameState.LOGIN, 0x04, LoginPluginResponsePacket.class);
 
+        /**
+         * Configuration
+         */
+        this.registry.register(PacketDirection.CLIENTBOUND, GameState.CONFIGURATION, 0x02, ConfigurationDisconnectPacket.class);
+        this.registry.register(PacketDirection.CLIENTBOUND, GameState.CONFIGURATION, 0x03, FinishConfigurationPacket.class);
+        this.registry.register(PacketDirection.CLIENTBOUND, GameState.CONFIGURATION, 0x04, ConfigurationKeepAlivePacket.class);
+        this.registry.register(PacketDirection.CLIENTBOUND, GameState.CONFIGURATION, 0x05, ConfigurationPingPacket.class);
+        this.registry.register(PacketDirection.CLIENTBOUND, GameState.CONFIGURATION, 0x06, ConfigurationResetChatPacket.class);
+        this.registry.register(PacketDirection.CLIENTBOUND, GameState.CONFIGURATION, 0x07, RegistryDataPacket.class);
+
+        this.registry.register(PacketDirection.SERVERBOUND, GameState.CONFIGURATION, 0x00, ConfigurationClientInformationPacket.class);
+        this.registry.register(PacketDirection.SERVERBOUND, GameState.CONFIGURATION, 0x03, ConfigurationFinishAcknowledgedPacket.class);
     }
 
-    public ArrayList<Player> getPlayers() {
-        return players;
+    public Collection<Player> getPlayers() {
+        return players.values();
     }
 
     /**
      * Send the disconnect packet to the player and close their socket
-     * @param player The player that should be disconnected
+     * @param handler The client handler that should be disconnected
      * @throws IOException
      */
     public void disconnectPlayer(ClientHandler handler, String reason) throws IOException {
         if (handler.getGameState() == GameState.LOGIN) {
             handler.getOut().writePacket(new LoginDisconnectPacket(reason));
             handler.getOut().close();
+            this.players.remove(handler);
         }
-    }
-
-    public void removePlayer(Player player) {
-        this.players.remove(player);
     }
 
     public PacketRegistry getPacketRegistry() {
@@ -123,5 +137,9 @@ public class MinecraftServer {
 
     public HashMap<ClientHandler, Player> getPendingPlayers() {
         return pendingPlayers;
+    }
+
+    public void addPlayer(Player player) {
+        this.players.put(player.getHandler(), player);
     }
 }

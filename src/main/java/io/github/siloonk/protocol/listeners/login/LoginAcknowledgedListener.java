@@ -13,7 +13,6 @@ public class LoginAcknowledgedListener implements PacketListener<LoginAcknowledg
 
     @Override
     public void handle(LoginAcknowledgedPacket packet, ClientHandler client) throws IOException {
-
         Player player = client.getServer().getPendingPlayers().remove(client);
 
         if (player == null) {
@@ -21,7 +20,7 @@ public class LoginAcknowledgedListener implements PacketListener<LoginAcknowledg
             return;
         }
 
-        client.getServer().getPlayers().add(player);
+        client.getServer().addPlayer(player);
         client.setState(GameState.CONFIGURATION);
         Logger.info("Adding %s to the player list!".formatted(player.getUsername()));
     }

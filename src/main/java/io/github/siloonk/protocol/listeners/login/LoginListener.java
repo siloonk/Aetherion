@@ -10,6 +10,7 @@ import io.github.siloonk.protocol.packets.login.LoginStartPacket;
 import io.github.siloonk.protocol.packets.login.LoginSuccessPacket;
 
 import java.io.IOException;
+import java.util.Collection;
 import java.util.List;
 
 public class LoginListener implements PacketListener<LoginStartPacket> {
@@ -19,7 +20,7 @@ public class LoginListener implements PacketListener<LoginStartPacket> {
     public void handle(LoginStartPacket packet, ClientHandler client) throws IOException {
         Player player = new Player(packet.getUsername(), packet.getUuid(), client);
 
-        List<Player> players = client.getServer().getPlayers();
+        Collection<Player> players = client.getServer().getPlayers();
 
         if (players.stream().anyMatch(p -> p.getUsername().equals(player.getUsername()))) {
             player.disconnect("A player with that name is already on the server!");

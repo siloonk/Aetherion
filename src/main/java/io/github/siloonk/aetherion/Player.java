@@ -64,6 +64,5 @@ public class Player {
 
     public void disconnect(String reason) throws IOException {
         this.handler.getServer().disconnectPlayer(handler, reason);
-        this.handler.getServer().removePlayer(this);
     }
 }
