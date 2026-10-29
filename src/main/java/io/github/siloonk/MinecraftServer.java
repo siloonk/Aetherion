@@ -94,10 +94,12 @@ public class MinecraftServer {
         this.registry.register(PacketDirection.SERVERBOUND, GameState.LOGIN, 0x00, LoginStartPacket.class);
         this.registry.register(PacketDirection.SERVERBOUND, GameState.LOGIN, 0x02, LoginPluginResponsePacket.class);
         this.registry.register(PacketDirection.SERVERBOUND, GameState.LOGIN, 0x03, LoginAcknowledgedPacket.class);
+        this.registry.register(PacketDirection.SERVERBOUND, GameState.LOGIN, 0x04, LoginCookieResponsePacket.class);
 
         this.registry.register(PacketDirection.CLIENTBOUND, GameState.LOGIN, 0x00, LoginDisconnectPacket.class);
         this.registry.register(PacketDirection.CLIENTBOUND, GameState.LOGIN, 0x02, LoginSuccessPacket.class);
-        this.registry.register(PacketDirection.CLIENTBOUND, GameState.LOGIN, 0x04, LoginPluginResponsePacket.class);
+        this.registry.register(PacketDirection.CLIENTBOUND, GameState.LOGIN, 0x04, LoginPluginRequestPacket.class);
+        this.registry.register(PacketDirection.CLIENTBOUND, GameState.LOGIN, 0x05, LoginCookieRequestPacket.class);
 
         /**
          * Configuration
